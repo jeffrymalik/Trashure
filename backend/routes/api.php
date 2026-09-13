@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\Warga\JenisSampahController;
 use App\Http\Controllers\Api\Warga\PengajuanPenjemputanController;
 use App\Http\Controllers\Api\Petugas\JadwalPenjemputanController;
 use App\Http\Controllers\Api\Petugas\SetoranController;
+use App\Http\Controllers\Api\Admin\PengajuanPenjemputanController as AdminPengajuanPenjemputanController;
+use App\Http\Controllers\Api\Admin\JadwalPenjemputanController as AdminJadwalPenjemputanController;
 
 // Default code
 
@@ -43,6 +45,25 @@ Route::middleware('auth:sanctum')->group(function () {
                 'user' => $request->user(),
             ]);
         });
+        Route::get(
+            '/admin/pengajuan',
+            [AdminPengajuanPenjemputanController::class, 'index']
+        );
+
+        Route::get(
+            '/admin/pengajuan/{id}',
+            [AdminPengajuanPenjemputanController::class, 'show']
+        );
+
+        Route::post(
+            '/admin/pengajuan/{id}/jadwal',
+            [AdminPengajuanPenjemputanController::class, 'jadwalkan']
+        );
+
+        Route::get(
+            '/admin/jadwal',
+            [AdminJadwalPenjemputanController::class, 'index']
+        );
 
     });
 
