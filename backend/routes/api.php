@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\Petugas\JadwalPenjemputanController;
 use App\Http\Controllers\Api\Petugas\SetoranController;
 use App\Http\Controllers\Api\Admin\PengajuanPenjemputanController as AdminPengajuanPenjemputanController;
 use App\Http\Controllers\Api\Admin\JadwalPenjemputanController as AdminJadwalPenjemputanController;
+use App\Http\Controllers\Api\Pengepul\StokSampahController as PengepulStokSampahController;
 
 // Default code
 
@@ -181,6 +182,10 @@ Route::middleware('auth:sanctum')->group(function () {
                 'user' => $request->user(),
             ]);
         });
+
+        Route::get('/pengepul/stok', [PengepulStokSampahController::class, 'index']);
+
+        Route::get('/pengepul/stok/{id}', [PengepulStokSampahController::class, 'show']);
     });
 
 });
