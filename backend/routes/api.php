@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\Warga\JenisSampahController;
 use App\Http\Controllers\Api\Warga\PengajuanPenjemputanController;
+use App\Http\Controllers\Api\Petugas\JadwalPenjemputanController;
+use App\Http\Controllers\Api\Petugas\SetoranController;
 
 // Default code
 
@@ -60,6 +62,40 @@ Route::middleware('auth:sanctum')->group(function () {
             ]);
         });
 
+        Route::get(
+            '/petugas/jadwal',
+            [JadwalPenjemputanController::class, 'index']
+        );
+
+        Route::get(
+            '/petugas/jadwal/{id}',
+            [JadwalPenjemputanController::class, 'show']
+        );
+
+        Route::patch(
+            '/petugas/jadwal/{id}/proses',
+            [JadwalPenjemputanController::class, 'proses']
+        );
+        
+        Route::post(
+            '/petugas/jadwal/{jadwalId}/setoran/jenis',
+            [SetoranController::class, 'catatJenisAktual']
+        );
+
+        Route::post(
+            '/petugas/jadwal/{jadwalId}/setoran/berat',
+            [SetoranController::class, 'catatBeratAktual']
+        );
+
+        Route::post(
+            '/petugas/jadwal/{jadwalId}/setoran',
+            [SetoranController::class, 'store']
+        );
+
+        Route::patch(
+            '/petugas/setoran/{setoranId}/validasi',
+            [SetoranController::class, 'validasi']
+        );
     });
 
 
