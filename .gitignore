@@ -1,0 +1,56 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# PHP
+/vendor/
+composer.lock
+.phpunit.result.cache
+.phpunit.cache/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Laravel
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+Homestead.json
+Homestead.yaml
+auth.json
+bootstrap/compiled.php
+app/storage/
+
+# Next.js
+.next/
+out/
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+coverage/
+*.pem
+
+# Mockup
+docs/mockup/
